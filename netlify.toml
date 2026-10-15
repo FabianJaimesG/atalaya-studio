@@ -1,0 +1,13 @@
+# Despliegue del frontend en Netlify (opcional: el servidor Express también lo sirve).
+# Si usas esta opción, pon la URL de Render en <meta name="api-url"> de public/index.html
+# y el dominio de Netlify en la variable ORIGEN_FRONTEND del backend.
+
+[build]
+  publish = "public"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; connect-src 'self' https://*.onrender.com; img-src 'self' data:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

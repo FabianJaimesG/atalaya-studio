@@ -1,0 +1,22 @@
+{
+  "name": "atalaya-studio",
+  "version": "0.2.0",
+  "description": "Sitio web de Atalaya Studio: frontend modular y API propia con Node.js y Express.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "author": "Fabián Alexis Jaimes Gelves",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0"
+  }
+}

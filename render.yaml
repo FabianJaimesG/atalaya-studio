@@ -1,0 +1,15 @@
+# Blueprint de Render: API + frontend servidos por Express en un solo servicio.
+services:
+  - type: web
+    name: atalaya-studio
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/salud
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      # Solo si el frontend se publica aparte (p. ej. https://atalaya-studio.netlify.app)
+      - key: ORIGEN_FRONTEND
+        sync: false

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atalaya Studio | Diseño gráfico e identidad visual</title>
+  <meta name="description" content="Atalaya Studio es un estudio de diseño gráfico: identidad visual, diseño web, ilustración y empaques para marcas que quieren verse con claridad.">
+  <meta name="color-scheme" content="light dark">
+  <!-- URL de la API. Vacía = mismo servidor. Si el frontend va en Netlify, pon aquí la URL de Render. -->
+  <meta name="api-url" content="">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/tema-inicial.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <div class="contenedor cabecera__barra">
+      <a class="logo" href="#inicio">
+        <svg class="logo__icono" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path d="M16 3 6 29h20L16 3Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M11 18h10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <span>Atalaya Studio</span>
+      </a>
+
+      <div class="cabecera__acciones">
+        <button id="boton-tema" class="boton-icono" type="button" aria-pressed="false">
+          <svg class="icono-luna" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z" fill="currentColor"/>
+          </svg>
+          <svg class="icono-sol" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4.5" fill="currentColor"/>
+            <path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span class="visualmente-oculto">Modo oscuro</span>
+        </button>
+        <button id="boton-menu" class="boton-icono boton-menu" type="button" aria-expanded="false" aria-controls="menu">
+          <span class="hamburguesa" aria-hidden="true"></span>
+          <span class="visualmente-oculto">Menú</span>
+        </button>
+      </div>
+
+      <nav id="menu" class="nav" aria-label="Principal">
+        <ul class="nav__lista">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="hero">
+      <div class="contenedor">
+        <p id="saludo" class="hero__saludo" hidden></p>
+        <h1>Diseño que se ve desde lejos</h1>
+        <p class="hero__texto">
+          Somos un estudio de diseño gráfico. Creamos identidades, sitios web y piezas visuales
+          para marcas que quieren comunicar con claridad y ser recordadas.
+        </p>
+        <div class="hero__acciones">
+          <a class="boton" href="#contacto">Cuéntanos tu proyecto</a>
+          <a class="boton boton--secundario" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="seccion" aria-labelledby="titulo-servicios">
+      <div class="contenedor">
+        <h2 id="titulo-servicios">Servicios</h2>
+        <p class="seccion__intro">Elige un servicio para ver en qué consiste. Te recordaremos los últimos que consultaste.</p>
+        <div id="servicios-estado" class="estado" role="status"></div>
+        <ul id="lista-servicios" class="rejilla"></ul>
+
+        <aside id="vistos" class="vistos" aria-labelledby="titulo-vistos" hidden>
+          <h3 id="titulo-vistos">Vistos recientemente</h3>
+          <ul id="lista-vistos" class="vistos__lista"></ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="testimonios" class="seccion seccion--alterna" aria-labelledby="titulo-testimonios">
+      <div class="contenedor">
+        <h2 id="titulo-testimonios">Lo que dicen nuestros clientes</h2>
+        <div id="testimonios-estado" class="estado" role="status"></div>
+        <ul id="lista-testimonios" class="rejilla rejilla--testimonios"></ul>
+      </div>
+    </section>
+
+    <section id="contacto" class="seccion" aria-labelledby="titulo-contacto">
+      <div class="contenedor contenedor--estrecho">
+        <h2 id="titulo-contacto">Contacto</h2>
+        <p class="seccion__intro">Cuéntanos qué necesitas y te responderemos en menos de 48 horas.</p>
+
+        <form id="form-contacto" class="formulario" novalidate>
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required maxlength="80" aria-describedby="error-nombre">
+            <p id="error-nombre" class="campo__error"></p>
+          </div>
+
+          <div class="campo">
+            <label for="correo">Correo electrónico</label>
+            <input id="correo" name="correo" type="email" autocomplete="email" required maxlength="120" aria-describedby="error-correo">
+            <p id="error-correo" class="campo__error"></p>
+          </div>
+
+          <div class="campo">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required minlength="10" maxlength="1000" aria-describedby="ayuda-mensaje error-mensaje"></textarea>
+            <p id="ayuda-mensaje" class="campo__ayuda">Si recargas la página por accidente, conservamos tu borrador mientras esta pestaña siga abierta.</p>
+            <p id="error-mensaje" class="campo__error"></p>
+          </div>
+
+          <label class="casilla">
+            <input name="recordar" type="checkbox">
+            <span>Recordar mi nombre en este navegador</span>
+          </label>
+
+          <button class="boton" type="submit">Enviar mensaje</button>
+          <p id="form-estado" class="estado" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__contenido">
+      <p>© 2026 Atalaya Studio · Bogotá, Colombia</p>
+      <button id="borrar-preferencias" class="enlace" type="button">Borrar mis preferencias guardadas</button>
+      <p id="pie-estado" class="pie__estado" role="status"></p>
+    </div>
+  </footer>
+</body>
+</html>
